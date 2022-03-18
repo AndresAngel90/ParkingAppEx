@@ -16,6 +16,12 @@
           />
         </q-td>
       </template>
+
+      <template #body-cell-hours="props" >
+        <q-td :props="props" >
+          {{calculateHours(props.row.dateOfEntrance)}}
+        </q-td>
+      </template>
     </q-table>
   </div>
 </template>
@@ -24,6 +30,7 @@
 import { QTableProps } from "quasar";
 import { computed } from "vue";
 import useVehicleStore from "../stores/vehicles";
+import { calculateHours } from '../utils/calculateHours';
 
 const store = useVehicleStore();
 store.getAllVehicles();
@@ -43,7 +50,7 @@ const columns: QTableProps["columns"] = [
   {
     name: "type",
     label: "Type Of Vehicle",
-    field: "vehiclePlate",
+    field: "vehicleType",
     align: "left",
   },
   {
@@ -56,6 +63,12 @@ const columns: QTableProps["columns"] = [
         minute: "2-digit",
       })}`,
     align: "left",
+  },
+  {
+    name:'hours',
+    label:'hours',
+    field:'hourse',
+    align:'left'
   },
   {
     name: "action",
