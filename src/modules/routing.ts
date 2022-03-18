@@ -4,7 +4,7 @@ import type { App } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 
-
+//Este es el routing
 export const install = (app: App) => {
   app.use(createRouter({
     history: createWebHashHistory(),
