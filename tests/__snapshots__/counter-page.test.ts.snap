@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`handle + click 1`] = `
+"<div class=\\"row\\">
+  <div class=\\"column col-3 q-mx-auto q-mt-lg\\"><span class=\\"text-center text-subtitle2 q-my-sm\\"> Count: <span data-id=\\"counter\\">2</span></span><button class=\\"q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable\\" tabindex=\\"0\\" type=\\"button\\" data-id=\\"add\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\">+</span><span class=\\"q-ripple\\" dir=\\"ltr\\"><span class=\\"q-ripple__inner\\" style=\\"height: 0px; width: 0px; transform: translate3d(0px,0px,0) scale3d(.2,.2,1);\\"></span></span><span class=\\"q-ripple\\" dir=\\"ltr\\"><span class=\\"q-ripple__inner\\" style=\\"height: 0px; width: 0px; transform: translate3d(0px,0px,0) scale3d(.2,.2,1);\\"></span></span></button></div>
+</div>"
+`;
+
+exports[`mount component 1`] = `
+"<div class=\\"row\\">
+  <div class=\\"column col-3 q-mx-auto q-mt-lg\\"><span class=\\"text-center text-subtitle2 q-my-sm\\"> Count: <span data-id=\\"counter\\">0</span></span><button class=\\"q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable\\" tabindex=\\"0\\" type=\\"button\\" data-id=\\"add\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\">+</span></button></div>
+</div>"
+`;
