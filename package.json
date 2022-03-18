@@ -20,6 +20,7 @@
   "dependencies": {
     "@quasar/extras": "^1.13.0",
     "@vueuse/core": "^7.7.0",
+    "axios": "^0.26.1",
     "eslint-plugin-compat": "^4.0.2",
     "json-server": "^0.17.0",
     "ky": "^0.29.0",
