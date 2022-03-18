@@ -15,7 +15,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>import { QTableProps } from 'quasar';
+<script lang="ts" setup>
+import { QTableProps } from 'quasar';
+//import useVehicleStore from '../stores/vehicles';
 const paid =(props:any)=>{
   console.log(props)
 }
@@ -31,7 +33,7 @@ const rows = [
     type: "Bike",
   },
 ];
-
+//const store = useVehicleStore()
 
 const columns:QTableProps['columns']=[
         {

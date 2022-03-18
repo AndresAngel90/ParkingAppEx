@@ -6,7 +6,7 @@ const useVehicleStore = defineStore('vehicles',{
     allVehicles:[]
   }),
   actions:{
-    async getaAllVehicles(){
+    async getAllVehicles(){
       try {
         const {data} = await vehiclesApi.get('/parkedVehicles')
 
@@ -14,7 +14,10 @@ const useVehicleStore = defineStore('vehicles',{
         console.log(error)
       }
     }
-  }
+  },
+  getters:{
+    VehiclesAvailable:(state)=> state.allVehicles
+  }  
 })
 
 export default useVehicleStore;
