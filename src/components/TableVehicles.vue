@@ -1,66 +1,67 @@
 <template>
   <div class="q-pa-md">
-    <q-table title="Vehicles" row-key="name" :rows="rows" :columns="columns">
-      <template v-slot:body-cell-action="props" >
-          <q-td key="action" :props="props" >
-            <q-btn
-              label="Pay"
-              color="secondary"
-              icon="paid"
-              @click="paid(props)"
-            />
-          </q-td>
+    <q-table
+      title="Vehicles"
+      row-key="name"
+      :rows="allVehicles"
+      :columns="columns"
+    >
+      <template v-slot:body-cell-action="props">
+        <q-td key="action" :props="props">
+          <q-btn
+            label="Pay"
+            color="secondary"
+            icon="paid"
+            @click="paid(props)"
+          />
+        </q-td>
       </template>
     </q-table>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { QTableProps } from 'quasar';
-//import useVehicleStore from '../stores/vehicles';
-const paid =(props:any)=>{
-  console.log(props)
-}
-const rows = [
+import { QTableProps } from "quasar";
+import { computed } from "vue";
+import useVehicleStore from "../stores/vehicles";
+
+const store = useVehicleStore();
+store.getAllVehicles();
+
+const paid = (props: any) => {
+  console.log(props);
+};
+
+const allVehicles = computed(() => store.allVehicles);
+const columns: QTableProps["columns"] = [
   {
-    id:'13',
-    plate: "MIK381",
-    type: "Car",
-    entryDate:new Date()
+    name: "plate",
+    label: "Plate",
+    align: "left",
+    field: "vehiclePlate",
   },
   {
-    plate: "NOL38F",
-    type: "Bike",
+    name: "type",
+    label: "Type Of Vehicle",
+    field: "vehiclePlate",
+    align: "left",
+  },
+  {
+    name: "entryDate",
+    label: "Date of Entry",
+    field: "dateOfEntrance",
+    format: (val) =>
+      `${new Date(val).toLocaleDateString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`,
+    align: "left",
+  },
+  {
+    name: "action",
+    label: "Action",
+    align: "left",
+    field: "action",
   },
 ];
-//const store = useVehicleStore()
-
-const columns:QTableProps['columns']=[
-        {
-          name: 'plate',
-          label: 'Plate',
-          align: 'left',
-          field: 'plate',
-        },
-        {
-          name:'type',          
-          label:'Type Of Vehicle',
-          field:'type',          
-          align: 'left',          
-        },
-        {
-          name:'entryDate',
-          label:'Date of Entry',
-          field:'entryDate',                 
-          format:val=> `${new Date(val).toLocaleDateString('en-US',{hour:'2-digit',minute:'2-digit'})}` ,
-          align: 'left',
-        },
-        {
-          name:'action',
-          label:'Action',
-          align: 'left',
-          field:'action'
-        }
-      ]
-
 </script>

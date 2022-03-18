@@ -9,14 +9,14 @@ const useVehicleStore = defineStore('vehicles',{
     async getAllVehicles(){
       try {
         const {data} = await vehiclesApi.get('/parkedVehicles')
-
+        this.allVehicles = data;
       } catch (error) {
         console.log(error)
       }
     }
   },
   getters:{
-    VehiclesAvailable:(state)=> state.allVehicles
+    vehiclesAvailable:(state)=> state.allVehicles
   }  
 })
 
