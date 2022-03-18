@@ -1,0 +1,11 @@
+{
+    "parkedVehicles": [
+    {
+      "vehicleType": "Bike",
+      "vehiclePlate": "PXH55B",
+      "spotToFill": 9,
+      "dateOfEntrance": "3/8/2022, 11:37:27 AM",
+      "id": 1
+    }
+]
+}
