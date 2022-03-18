@@ -1085,6 +1085,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pinia/testing@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@pinia/testing@npm:0.0.10"
+  dependencies:
+    vue-demi: "*"
+  peerDependencies:
+    pinia: ~2.0.12
+  checksum: 10b891baa657a188cc780ae202bc494d083e45c963a5d0bd43222b4d303fee579920cc40cd23e1f943b2146f22b960fa248d18374c94b7224b0bdae31b1192c3
+  languageName: node
+  linkType: hard
+
 "@playwright/test@npm:^1.19.2":
   version: 1.19.2
   resolution: "@playwright/test@npm:1.19.2"
@@ -9335,6 +9346,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.17.5
     "@intlify/vite-plugin-vue-i18n": ^3.3.1
+    "@pinia/testing": ^0.0.10
     "@playwright/test": ^1.19.2
     "@quasar/extras": ^1.13.0
     "@quasar/vite-plugin": ^1.0.5
