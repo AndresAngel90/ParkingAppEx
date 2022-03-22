@@ -31,6 +31,7 @@ import { QTableProps } from "quasar";
 import { computed } from "vue";
 import useVehicleStore from "../stores/vehicles";
 import { calculateHours } from '../utils/calculateHours';
+import { formatHour } from '../utils/formatHour';
 
 const store = useVehicleStore();
 store.getAllVehicles();
@@ -40,6 +41,9 @@ const paid = (props: any) => {
 };
 
 const allVehicles = computed(() => store.allVehicles);
+
+
+
 const columns: QTableProps["columns"] = [
   {
     name: "plate",
@@ -57,11 +61,12 @@ const columns: QTableProps["columns"] = [
     name: "entryDate",
     label: "Date of Entry",
     field: "dateOfEntrance",
-    format: (val) =>
-      `${new Date(val).toLocaleDateString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })}`,
+    // format: (val) =>
+    //   `${new Date(val).toLocaleDateString("en-US", {
+    //     hour: "2-digit",
+    //     minute: "2-digit",
+    //   })}`,
+    format:formatHour,
     align: "left",
   },
   {
@@ -77,4 +82,6 @@ const columns: QTableProps["columns"] = [
     field: "action",
   },
 ];
+
+
 </script>
