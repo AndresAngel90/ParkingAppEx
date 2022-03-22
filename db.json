@@ -6,6 +6,27 @@
       "vehiclePlate": "PXH55B",
       "spotToFill": 9,
       "dateOfEntrance": "2022-03-04T13:06:17.146Z"
+    },
+    {
+      "id": 2,
+      "vehicleType": "Car",
+      "vehiclePlate": "PXH123",
+      "spotToFill": 8,
+      "dateOfEntrance": "2022-03-04T12:06:17.146Z"
+    },
+    {
+      "id": 3,
+      "vehicleType": "Bike",
+      "vehiclePlate": "NOL38F",
+      "spotToFill": 7,
+      "dateOfEntrance": "2022-03-04T14:06:17.146Z"
+    },
+    {
+      "id": 4,
+      "vehicleType": "Car",
+      "vehiclePlate": "MIK381",
+      "spotToFill": 5,
+      "dateOfEntrance": "2022-03-04T13:06:17.146Z"
     }
 ]
 }
