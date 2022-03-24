@@ -28,5 +28,13 @@
       "spotToFill": 5,
       "dateOfEntrance": "2022-03-04T13:06:17.146Z"
     }
+],
+"login": [],
+"users": [
+  {
+    "email": "josedanielparra05@outlook.com",
+    "password": "$2a$10$z3JpYxi9/4yzv3KwauH4BeKGxi8RhY9M2MJNGyowT2UdDcERj8f9S",
+    "id": 1
+  }
 ]
 }
