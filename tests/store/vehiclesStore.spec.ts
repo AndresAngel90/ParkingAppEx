@@ -21,7 +21,7 @@ describe('testing the vehicle store', () => {
 
   test('intial state', () => {
     const initialState:vehiclesState={
-      allVehicles:[]
+      allVehicles:[],spotsAvailable:{bikesEmptySpots:[],carEmptySpots:[]}
     }
     const store = useVehicles();
     const vehiclesState = store.$state;
