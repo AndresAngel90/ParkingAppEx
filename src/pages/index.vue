@@ -22,8 +22,10 @@ function add() {
 
 <style lang="postcss"></style>
 
-<route lang="JSON5">
+<route>
 {
-  name: "index"
+  meta: {
+    requiresAuth: true
+  }
 }
 </route>

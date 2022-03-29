@@ -1,4 +1,5 @@
 <template>
+<div class="window-height window-width row justify-center items-center">
   <div class="column q-pa-lg">
     <div class="row">
       <q-card square class="shadow-24" style="width: 350px; height: 400px">
@@ -49,6 +50,7 @@
       </q-card>
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -94,6 +96,7 @@ export default defineComponent({
 <route>
 {
   meta: {
+    layout: "no-toolbar-layout",
     requiresAuth: false
   }
 }

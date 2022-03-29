@@ -3,7 +3,6 @@ import { RouteLocationNormalized, RouteLocationRaw } from "vue-router";
 export const authGuard = (
     to: RouteLocationNormalized
 ): RouteLocationRaw | boolean => {
-    console.log("TO: " + to.fullPath + " -- RequiresAuth:" + to.meta.requiresAuth);
     if (to.meta.requiresAuth && localStorage.getItem("authToken") == null) {
         return {
             path: '/login'

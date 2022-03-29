@@ -173,3 +173,11 @@ watch(
   border-radius: 30px;
 }
 </style>
+
+<route>
+{
+  meta: {
+    requiresAuth: true
+  }
+}
+</route>
