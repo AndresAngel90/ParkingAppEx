@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     InfoDialog: typeof import('./components/InfoDialog.vue')['default']
+    NavBar: typeof import('./components/NavBar.vue')['default']
     TableVehicles: typeof import('./components/TableVehicles.vue')['default']
   }
 }
