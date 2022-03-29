@@ -24,6 +24,8 @@ test('mount component', () => {
 test('handle + click', async () => {
   const wrapper = wrapperFactory();
   const count = wrapper.get('[data-id="counter"]');
+  console.log("WRaPPER TEST VANTAGE",wrapper.vm);
+  
   const addBtn = wrapper.get('[data-id="add"]');
 
   await addBtn.trigger('click')
