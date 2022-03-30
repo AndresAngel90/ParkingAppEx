@@ -9,11 +9,12 @@
           </h4>
           <h4 class="text-h5 text-white q-my-md text-center">🚗🚧🛵</h4>
         </q-card-section>
-        <q-form @submit="login" class="q-px-sm q-pt-lg">
+        <q-form @submit="login()" class="q-px-sm q-pt-lg" data-test="loginForm">
           <q-card-section>
             <q-input
               square
               clearable
+              data-test="emailInput"
               v-model="email"
               label="Email"
               :rules="[(val:string) => !!val || 'Field is required']"
@@ -26,6 +27,7 @@
               type="password"
               square
               clearable
+              data-test="passInput"
               v-model="password"
               label="Password"
               :rules="[(val:string) => !!val || 'Field is required']"
@@ -39,6 +41,7 @@
           <q-card-actions class="q-px-lg">
             <q-btn
               unelevated
+              data-test="buttonForm"
               size="md"
               color="secondary"
               class="full-width text-white"
@@ -53,44 +56,36 @@
 </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue";
 import { Notify } from "quasar";
 import { useRouter } from "vue-router";
-import login from "../api/loginApi";
+import loginApi from "../api/loginApi";
 
-export default defineComponent({
-  setup() {
-    const router = useRouter();
-    return { router };
-  },
-  data() {
-    return {
-      email: "josedanielparra05@outlook.com",
-      password: "123456",
-    };
-  },
-  methods: {
-    login() {
-      login(this.email, this.password)
-        .then((response) => {
-          if (response.accessToken) {
-            this.saveToken(response.accessToken);
-            this.router.push({ name: "index" });
-          }
-        })
-        .catch((error) => {
-          Notify.create({
-            type: "negative",
-            message: error.message,
-          });
-        });
-    },
-    saveToken(token: string) {
-      localStorage.setItem("authToken", token);
-    },
-  },
-});
+const router = useRouter();
+
+const email= ref<string> ("");
+const password= ref<string> ("");
+
+function login() {
+  loginApi(email.value, password.value)
+    .then((response) => {
+      if (response.accessToken) {            
+        saveToken(response.accessToken);
+        router.push({ name: "index" });
+      }
+    })
+    .catch((error) => {
+      Notify.create({
+        type: "negative",
+        message: error.message,
+      });
+    });
+}
+
+function saveToken(token: string) {
+  localStorage.setItem("authToken", token);
+}
 </script>
 
 <route>
