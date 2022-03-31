@@ -1,40 +1,45 @@
-import { mount } from '@vue/test-utils'
-import { test, expect } from 'vitest'
-import { Quasar } from 'quasar'
-import Login from '~/pages/Login.vue'
+import { mount } from '@vue/test-utils';
+import { useRouter } from 'vue-router'
+import { test, expect } from 'vitest';
+import { Quasar } from 'quasar';
+import Login from '~/pages/Login.vue';
+import axios from 'axios';
 
-const routerPushMock = vi.fn();
-
-vi.mock('vue-router', () => ({
-    useRouter: () => ({
-        push: routerPushMock,
-    }),
-}));
+const loginMockResponse = {
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6I",
+    "user": {
+        "email": "josedanielparra05@outlook.com",
+        "id": 1
+    }
+}
 
 const wrapperFactory = () => mount(Login, {
     global: {
-        plugins: [Quasar]
+        plugins: [Quasar],
+        stubs: ["router-link", "router-view"],
     },
-})
+});
 
-test('mount component', () => {
-    expect(Login).toBeTruthy();
-})
+vi.mock('vue-router', () => ({
+    useRouter: vi.fn(() => ({
+        push: () => { }
+    }))
+}));
 
-test('Try login', async () => {
+
+test('Login with right data', async () => {
+    const routerPushMock = vi.fn();
+    // @ts-ignore
+    useRouter.mockImplementationOnce(() => ({
+        routerPushMock
+    }));
     const wrapper = wrapperFactory();
-    const loginMethod = vi.spyOn(wrapper.vm, "login");
+    vi.spyOn(axios, 'post').mockResolvedValue({ data: loginMockResponse });
+
     await wrapper.get('[data-test="emailInput"]').setValue("josedanielparra05@gmail.com");
-    await wrapper.get('[data-test="passInput"]').setValue("123456");
+    await wrapper.get('[data-test="passInput"]').setValue("12345");
+
     await wrapper.get('[data-test="loginForm"]').trigger('submit');
 
-    expect(loginMethod).toHaveBeenCalledOnce();
-})
-
-test('Try login with missing password', async () => {
-    const wrapper = wrapperFactory();
-    await wrapper.get('[data-test="emailInput"]').setValue("josedanielparra05@gmail.com");
-    await wrapper.get('[data-test="loginForm"]').trigger('submit');
-
-    expect(wrapper.get('[data-test="loginForm"]').text()).toContain("Field is required");
-})
+    expect(routerPushMock).toHaveBeenCalledOnce();
+});

@@ -2,55 +2,25 @@
 <div class="window-height window-width row justify-center items-center">
   <div class="column q-pa-lg">
     <div class="row">
-      <q-card square class="shadow-24" style="width: 350px; height: 400px">
-        <q-card-section class="bg-deep-purple-7">
-          <h4 class="text-h5 text-white q-my-sm text-center">
-            Parking Management App
-          </h4>
-          <h4 class="text-h5 text-white q-my-md text-center">🚗🚧🛵</h4>
-        </q-card-section>
-        <q-form @submit="login()" class="q-px-sm q-pt-lg" data-test="loginForm">
+       <div class="column">
+      <div class="row justify-center ">
+        <h5 class="text-h5 text-balck q-my-md">Parking App 🛵🚖</h5>
+      </div>
+      <div class="row">
+        <q-card square bordered class="q-pa-lg shadow-1">
+          <q-form class="q-gutter-md" data-test="loginForm" @submit="login()">
           <q-card-section>
-            <q-input
-              square
-              clearable
-              data-test="emailInput"
-              v-model="email"
-              label="Email"
-              :rules="[(val:string) => !!val || 'Field is required']"
-            >
-              <template v-slot:prepend>
-                <q-icon name="email" />
-              </template>
-            </q-input>
-            <q-input
-              type="password"
-              square
-              clearable
-              data-test="passInput"
-              v-model="password"
-              label="Password"
-              :rules="[(val:string) => !!val || 'Field is required']"
-            >
-              <template v-slot:prepend>
-                <q-icon name="lock" />
-              </template>
-            </q-input>
+              <q-input square filled clearable v-model="email" type="email" label="email" data-test="emailInput" :rules="[(val:string) => !!val || 'Field is required']"/>
+              <br/>
+              <q-input square filled clearable v-model="password" type="password" label="password" data-test="passInput" :rules="[(val:string) => !!val || 'Field is required']"/>
           </q-card-section>
-
-          <q-card-actions class="q-px-lg">
-            <q-btn
-              unelevated
-              data-test="buttonForm"
-              size="md"
-              color="secondary"
-              class="full-width text-white"
-              label="Log in"
-              type="submit"
-            />
+          <q-card-actions class="q-px-md">
+            <q-btn unelevated color="light-green-7" size="lg" class="full-width" label="Login" type="submit"/>
           </q-card-actions>
-        </q-form>
-      </q-card>
+            </q-form>
+        </q-card>
+      </div>
+    </div>
     </div>
   </div>
 </div>
